@@ -14,6 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('logout', function () {
+    \Illuminate\Support\Facades\Session::invalidate();
+    \Illuminate\Support\Facades\Auth::logout();
+        return redirect()->route('login');
+})->name('logout');
 
 Auth::routes();
 
